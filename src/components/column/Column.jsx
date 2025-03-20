@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Card from '../card/Card'
+import DropIndicator from '../dropIndicator/DropIndicator'
 
 const Column = ({ title, headingColor, column, cards, setCards }) => {
   
@@ -14,7 +16,10 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
       <div className={`h-full w-full transition-colors ${
         !active ? "bg-neutral-800/50" : "bg-neutral-800/0"
       }`}>
-        
+        {filteredCards.map((c) => {
+          return <Card key={c.id} {...c} />
+        })}
+        <DropIndicator beforeId="-1" column={column} />
       </div>
     </div>
   )
