@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Column from '../column/Column';
+import Column from '../column/Column'
+import DeleteBarrel from '../deleteBarrel/DeleteBarrel'
 
 const Board = () => {
   const [cards, setCards] = useState(DEFAULT_CARDS);
@@ -34,6 +35,7 @@ const Board = () => {
         cards={cards}
         setCards={setCards}
       />
+      <DeleteBarrel setCards={setCards} />
     </div>
   )
 }
