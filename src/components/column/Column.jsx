@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Card from '../card/Card'
 import DropIndicator from '../dropIndicator/DropIndicator'
+import AddCard from '../addCard/AddCard'
 
 const Column = ({ title, headingColor, column, cards, setCards }) => {
   
@@ -20,6 +21,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
           return <Card key={c.id} {...c} />
         })}
         <DropIndicator beforeId="-1" column={column} />
+        <AddCard column={column} setCards={setCards} />
       </div>
     </div>
   )
