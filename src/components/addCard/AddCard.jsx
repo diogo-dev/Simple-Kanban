@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FiPlus } from "react-icons/fi"
+import { motion } from 'framer-motion'
 
 const AddCard = ({column, setCards}) => {
   const [text, setText] = useState("");;
@@ -26,7 +27,7 @@ const AddCard = ({column, setCards}) => {
     <>
       {adding
         ? (
-          <form onSubmit={handleSubmit}>
+          <motion.form layout onSubmit={handleSubmit}>
             <textarea
               onChange={(e) => setText(e.target.value)}
               autoFocus
@@ -52,10 +53,11 @@ const AddCard = ({column, setCards}) => {
                 <FiPlus />
               </button>
             </div>
-          </form>
+          </motion.form>
         )
         : (
-          <button
+          <motion.button
+            layout
             onClick={() => setAdding(true)}
             className='flex w-full items-center gap-1.5 
           px-3 py-1.5 text-xs text-neutral-400 
@@ -63,7 +65,7 @@ const AddCard = ({column, setCards}) => {
           >
             <span>Add card</span>
             <FiPlus />
-          </button>
+          </motion.button>
         )}
     </>
   )

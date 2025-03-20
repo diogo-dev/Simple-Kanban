@@ -10,7 +10,19 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
 
   const handleDragStart = (e, card) => {
     e.dataTransfer.setData("cardId", card.id);
+  };
 
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setActive(true);
+  };
+
+  const handleDragLeave = () => {
+    setActive(false);
+  };
+
+  const handleDragEnd = (e) => {
+    setActive(false);
   };
 
   return (
@@ -19,8 +31,12 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
         <h3 className={`font-medium ${headingColor}`}>{title}</h3>
         <span className='rounded text-sm text-neutral-400'>{filteredCards.length}</span>
       </div>
-      <div className={`h-full w-full transition-colors ${
-        !active ? "bg-neutral-800/50" : "bg-neutral-800/0"
+      <div
+        onDrop={handleDragEnd}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        className={`h-full w-full transition-colors ${
+        active ? "bg-neutral-800/50" : "bg-neutral-800/0"
       }`}>
         {filteredCards.map((c) => {
           return <Card key={c.id} {...c} handleDragStart={handleDragStart} />
