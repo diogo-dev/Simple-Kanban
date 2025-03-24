@@ -16,9 +16,9 @@ const DeleteBarrel = ({ setCards }) => {
 
   const handleDragEnd = (e) => {
     const cardId = e.dataTransfer.getData("cardId");
-    
+
     setCards((prevCards) => prevCards.filter((c) => c.id !== cardId));
-    
+
     setActive(false);
   };
 

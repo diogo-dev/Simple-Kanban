@@ -67,6 +67,43 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   const handleDragEnd = (e) => {
     setActive(false);
     clearHighlights();
+
+    const cardId = e.dataTransfer.getData("cardId");
+
+    const indicators = getIndicators();
+    const { element } = getNearestIndicator(e, indicators);
+
+    const before = element.dataset.before || "-1";
+
+    // if before === cardId, we don't do anything
+    // because we're trying to put the card in the same position
+    if (before !== cardId) {
+      let copy = [...cards];
+
+      let cardToTransfer = copy.find((c) => c.id === cardId);
+      if (!cardToTransfer) return;
+
+      // Updating the card column
+      cardToTransfer = { ...cardToTransfer, column };
+
+      copy = copy.filter((c) => c.id !== cardId);
+
+      const moveToBack = before === "-1";
+
+      if (moveToBack) {
+        // Insert the card at the end of the cards array
+        copy.push(cardToTransfer);
+      } else {
+        // Insert the card at a specific index position in the cards array
+        const insertAtIndex = copy.findIndex((el) => el.id === before);
+        if (insertAtIndex === undefined) return;
+
+        copy.splice(insertAtIndex, 0, cardToTransfer);
+      }
+
+      setCards(copy);
+    }
+
   };
 
   return (
