@@ -1,12 +1,17 @@
-# React + Vite
+# React + Vite Project (Kanban)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this project I've implemented a simple kanban
 
-Currently, two official plugins are available:
+This Kanban has four columns (backlog, To do, In progress, Completed) and the user is able to perform the following actions:
+- Create a card
+- Delete a card
+- Move cards between column
+- Move the cards within the same column
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The technologies used were:
+- React
+- TailwindCSS for styling 
+- FramerMotion for animation
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💡
+Keep in mind that the directory structure of the components is organized in a way I'm used to work with when there's only the .jsx file and its corresponding .css file. So, as this is my first project working with tailwind I might have not used the right file organization :/
