@@ -3,7 +3,7 @@ import { FiPlus } from "react-icons/fi"
 import { motion } from 'framer-motion'
 
 const AddCard = ({column, setCards}) => {
-  const [text, setText] = useState("");;
+  const [text, setText] = useState("");
   const [adding, setAdding] = useState(false);
 
   const handleSubmit = (e) => {

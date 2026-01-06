@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Column from '../column/Column'
 import DeleteBarrel from '../deleteBarrel/DeleteBarrel'
 
@@ -6,7 +6,7 @@ const Board = () => {
   const [cards, setCards] = useState(DEFAULT_CARDS);
 
   return (
-    <div className='flex h-full w-full gap-3 overflow-scroll p-12'>
+    <div className='flex h-full w-full justify-center gap-3 overflow-hidden p-12'>
       <Column
         title="Backlog"
         column="backlog"
@@ -50,13 +50,13 @@ const DEFAULT_CARDS = [
   { id: "7", title: "Task 7", column: "todo" },
   { id: "8", title: "Task 8", column: "todo" },
   { id: "9", title: "Task 9", column: "todo" },
-  { id: "10", title: "Task 10", column: "todo" },
 
-  { id: "11", title: "Task 11", column: "doing" },
-  { id: "12", title: "Task 12", column: "doing" },
-  { id: "14", title: "Task 14", column: "doing" },
-  { id: "15", title: "Task 15", column: "doing" },
+  { id: "11", title: "Task 10", column: "doing" },
+  { id: "12", title: "Task 11", column: "doing" },
+  { id: "13", title: "Task 12", column: "doing" },
+  { id: "14", title: "Task 13", column: "doing" },
 
+  { id: "15", title: "Task 15", column: "done" },
   { id: "16", title: "Task 16", column: "done" },
   { id: "17", title: "Task 17", column: "done" },
   { id: "18", title: "Task 18", column: "done" },
